@@ -1,6 +1,7 @@
 SENTRY_ORG=testorg-az
-SENTRY_PROJECT=sentry-native
-VERSION ?= $(shell sentry-cli releases propose-version)
+SENTRY_PROJECT=ido-native-2
+#VERSION ?= $(shell sentry-cli releases propose-version)
+VERSION=1.1
 CMAKE=cmake
 
 all: bin/example
@@ -39,13 +40,13 @@ upload_debug_files:
 	sentry-cli upload-dif --org testorg-az --project $(SENTRY_PROJECT) --wait --include-sources bin/
 
 run_crash:
-	SENTRY_DSN=https://b5ceabee4e4a4cd6b21afe3bd2cbbed4@sentry.io/1720457 bin/example --crash
+	SENTRY_DSN=https://3e8e962d8210402cb985d2fec57b8d8f@o87286.ingest.sentry.io/1828438 bin/example --crash
 
 run_message:
-	SENTRY_DSN=https://b5ceabee4e4a4cd6b21afe3bd2cbbed4@sentry.io/1720457 bin/example --message
+	SENTRY_DSN=https://3e8e962d8210402cb985d2fec57b8d8f@o87286.ingest.sentry.io/1828438 bin/example --message
 
 run_clean:
-	SENTRY_DSN=https://b5ceabee4e4a4cd6b21afe3bd2cbbed4@sentry.io/1720457 bin/example
+	SENTRY_DSN=https://3e8e962d8210402cb985d2fec57b8d8f@o87286.ingest.sentry.io/1828438 bin/example
 
 clean:
 	rm -rf ./bin/exampl*
